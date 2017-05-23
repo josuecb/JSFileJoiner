@@ -86,7 +86,7 @@ var FileJoiner = (function () {
                     }
                     return;
                 } else if (t instanceof Object) {
-                    this.load(debug, "\\" + dirs, t[dirs]);
+                    this.load(debug, ((dir === undefined) ? (s.path[s.path.length - 1] === "\\") ? "" : ("\\") : dir + "\\") + dirs, t[dirs]);
                 }
             }
         };

@@ -54,7 +54,7 @@ you can create as many config.son file as you want.
 The construction have 2 arguments:
 
 - First argument: is the absolute path for the json file.
-- Second argument: is the absolute path of your javascript root path.
+- Second argument: is the absolute path of the parent folder where javascript folder is located.
 
 #### For example
 Our host is localhost lets supose our javascript library is in 'js' folder
