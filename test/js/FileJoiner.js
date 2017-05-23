@@ -74,11 +74,7 @@ var FileJoiner = (function () {
             for (var dirs in t) {
                 if (t instanceof Array) {
                     for (var i = 0; i < t.length; i++) {
-                        var l;
-                        if (dir[dir.length - 1] === "\\")
-                            l = s.path + dir + t[i] + ".js";
-                        else
-                            l = s.path + dir + "\\" + t[i] + ".js";
+                        var l = s.path + dir + ((dir[dir.length - 1] === "\\") ? "" : "\\") + t[i] + ".js";
 
                         qLink.insert(l);
                         if (debug)
