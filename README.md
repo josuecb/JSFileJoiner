@@ -2,6 +2,9 @@
 This Javascript class will let you add your library for back-end into one file according to your folder tree.
 
 To use this FileJoiner class, you must create a config.json writing inside the key tree the value of tree will be your custom file hierarchical tree.
+# Requisites
+
+- Nodejs: Latest version
 
 # How to use it
 
