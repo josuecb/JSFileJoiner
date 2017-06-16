@@ -1,5 +1,5 @@
 /**
- *
+ * Created by Josue on 6/16/2017.
  */
 var Queue = (function () {
     function Queue() {
@@ -34,8 +34,9 @@ var Queue = (function () {
 })();
 
 var FileJoiner = (function () {
-    function FileJoiner(configFilePath, path) {
+    function FileJoiner(configFilePath, path, ext) {
         var s = this;
+        var ex = ext;
         var qLink = new Queue();
         this.path = path;
         this.tree = null;
@@ -58,6 +59,9 @@ var FileJoiner = (function () {
                 // console.log("path: " + p);
                 // console.log("size: " + qLink.size());
 
+                if (ex !== undefined)
+                    p = p.replace(/.js/, ex);
+
                 var data = fs.readFileSync(p, 'utf8');
                 return s.appendMultpleFiles(string + data);
             } else {
@@ -74,7 +78,7 @@ var FileJoiner = (function () {
             for (var dirs in t) {
                 if (t instanceof Array) {
                     for (var i = 0; i < t.length; i++) {
-                        var l = s.path + dir + ((dir[dir.length - 1] === "\\") ? "" : "\\") + t[i] + ".js";
+                        var l = s.path + dir + ((dir[dir.length - 1] === "\\") ? "" : "\\") + t[i] + (ex !== undefined ? ex : ".js");
 
                         qLink.insert(l);
                         if (debug)
@@ -92,3 +96,4 @@ var FileJoiner = (function () {
 })();
 
 module.exports = FileJoiner;
+
